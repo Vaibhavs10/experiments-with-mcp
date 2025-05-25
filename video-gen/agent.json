@@ -5,7 +5,7 @@
 		{
 			"type": "sse",
 			"config": {
-				"url": "https://evalstate-flux1-schnell.hf.space/gradio_api/mcp/sse"
+				"url": "https://lightricks-ltx-video-distilled.hf.space/gradio_api/mcp/sse"
 			}
 		}
 	]
