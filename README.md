@@ -38,3 +38,49 @@ uv pip install "huggingface_hub[mcp]>=0.32.0"
 ```bash
 tiny-agents run ./image-gen
 ```
+
+## Using Local models w/ Llama.cpp
+
+In the examples above we used hosted models via Hugging Face Inference Providers but in reality you can use any tool calling enabled LLM (even those running locally).
+
+Arguably the best way to run local models is llama.cpp
+
+On a mac, you can install it via:
+
+```bash
+brew install llama.cpp
+```
+
+Once installed you can use any LLMs
+
+```bash
+llama-server --jinja -fa -hf bartowski/Qwen2.5-72B-Instruct-GGUF:Q4_K_M
+```
+
+Once the server is up, you can call tiny agents.
+
+The only change you need is in the `agents.json` file
+
+```diff
+{
++	"model": "bartowski/Qwen2.5-72B-Instruct-GGUF:Q4_K_M",
++	"endpointUrl": "http://localhost:8080/v1",
+-	"model": "Qwen/Qwen2.5-72B-Instruct",
+-	"provider": "nebius",
+
+	"servers": [
+		{
+			"type": "sse",
+			"config": {
+				"url": "https://evalstate-flux1-schnell.hf.space/gradio_api/mcp/sse"
+			}
+		}
+	]
+}
+```
+
+That's it, you can now run your agent directly!
+
+```
+npx @huggingface/tiny-agents run ./local-image-gen
+```

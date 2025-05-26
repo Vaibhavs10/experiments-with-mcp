@@ -1,0 +1,12 @@
+{
+	"model": "bartowski/Qwen2.5-72B-Instruct-GGUF:Q4_K_M",
+	"endpointUrl": "http://localhost:8080/v1",
+	"servers": [
+		{
+			"type": "sse",
+			"config": {
+				"url": "https://evalstate-flux1-schnell.hf.space/gradio_api/mcp/sse"
+			}
+		}
+	]
+}
