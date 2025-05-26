@@ -1,4 +1,4 @@
-# Experiments with MCP
+# Experiments with MCP 
 
 At this point everyone and their mum's are talking about MCP, this repo is just a collection of experiments with it.
 
@@ -43,7 +43,7 @@ tiny-agents run ./image-gen
 
 In the examples above we used hosted models via Hugging Face Inference Providers but in reality you can use any tool calling enabled LLM (even those running locally).
 
-Arguably the best way to run local models is llama.cpp
+Arguably the best way to run local models is [llama.cpp](https://github.com/ggml-org/llama.cpp)
 
 On a mac, you can install it via:
 
@@ -54,7 +54,7 @@ brew install llama.cpp
 Once installed you can use any LLMs
 
 ```bash
-llama-server --jinja -fa -hf bartowski/Qwen2.5-72B-Instruct-GGUF:Q4_K_M
+llama-server --jinja -fa -hf unsloth/Qwen3-30B-A3B-GGUF:Q4_K_M -c 
 ```
 
 Once the server is up, you can call tiny agents.
@@ -63,9 +63,8 @@ The only change you need is in the `agents.json` file
 
 ```diff
 {
-+	"model": "bartowski/Qwen2.5-72B-Instruct-GGUF:Q4_K_M",
+	"model": "unsloth/Qwen3-30B-A3B-GGUF:Q4_K_M",
 +	"endpointUrl": "http://localhost:8080/v1",
--	"model": "Qwen/Qwen2.5-72B-Instruct",
 -	"provider": "nebius",
 
 	"servers": [
@@ -84,3 +83,11 @@ That's it, you can now run your agent directly!
 ```
 npx @huggingface/tiny-agents run ./local-image-gen
 ```
+
+and.. you can do the same thing via `huggingface_hub` MCPClient too:
+
+```
+tiny-agents run ./local-image-gen
+```
+
+That's it! go ahead, give it a shot!
