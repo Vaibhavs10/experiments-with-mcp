@@ -59,3 +59,28 @@ llama-server --jinja -fa -hf bartowski/Qwen2.5-72B-Instruct-GGUF:Q4_K_M
 
 Once the server is up, you can call tiny agents.
 
+The only change you need is in the `agents.json` file
+
+```diff
+{
++	"model": "bartowski/Qwen2.5-72B-Instruct-GGUF:Q4_K_M",
++	"endpointUrl": "http://localhost:8080/v1",
+-	"model": "Qwen/Qwen2.5-72B-Instruct",
+-	"provider": "nebius",
+
+	"servers": [
+		{
+			"type": "sse",
+			"config": {
+				"url": "https://evalstate-flux1-schnell.hf.space/gradio_api/mcp/sse"
+			}
+		}
+	]
+}
+```
+
+That's it, you can now run your agent directly!
+
+```
+npx @huggingface/tiny-agents run ./local-image-gen
+```
