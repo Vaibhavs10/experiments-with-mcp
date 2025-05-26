@@ -54,7 +54,7 @@ brew install llama.cpp
 Once installed you can use any LLMs
 
 ```bash
-llama-server --jinja -fa -hf unsloth/Qwen3-30B-A3B-GGUF:Q4_K_M -c 
+llama-server --jinja -fa -hf unsloth/Qwen3-30B-A3B-GGUF:Q4_K_M -c 16384
 ```
 
 Once the server is up, you can call tiny agents.
