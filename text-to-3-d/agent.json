@@ -1,0 +1,12 @@
+{
+	"model": "unsloth/Qwen3-30B-A3B-GGUF:Q4_K_M",
+	"endpointUrl": "http://localhost:8080/v1",
+	"servers": [
+		{
+			"type": "sse",
+			"config": {
+				"url": "https://hysts-shap-e.hf.space/gradio_api/mcp/sse"
+			}
+		}
+	]
+}
