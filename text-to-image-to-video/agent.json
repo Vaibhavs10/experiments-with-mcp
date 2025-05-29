@@ -1,0 +1,18 @@
+{
+	"model": "unsloth/Qwen3-30B-A3B-GGUF:Q4_K_M",
+	"endpointUrl": "http://localhost:8080/v1",
+	"servers": [
+		{
+			"type": "sse",
+			"config": {
+				"url": "https://linoyts-framepack-f1.hf.space/gradio_api/mcp/sse"
+			}
+		},
+		{
+			"type": "sse",
+			"config": {
+				"url": "https://evalstate-flux1-schnell.hf.space/gradio_api/mcp/sse"
+			}
+		}
+	]
+}

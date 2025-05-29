@@ -91,3 +91,7 @@ tiny-agents run ./local-image-gen
 ```
 
 That's it! go ahead, give it a shot!
+
+
+## Using Local models for complex workflows
+
